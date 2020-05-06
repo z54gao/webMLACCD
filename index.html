@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("w3-include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("w3-include-html");
+          includeHTML();
+        }
+      }
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+}
+</script>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>MLACCD</title>
+    <style>
+        .button {
+         background-color: #4CAF50;
+           border: none;
+            color: white;
+          padding: 15px 25px;
+            text-align: center;
+           font-size: 16px;
+           cursor: pointer;}
+        .button:hover {
+             background-color: green; }
+      </style>
+</head>
+<body>
+
+<div w3-include-html="head.html"></div>
+<script>
+includeHTML();
+</script>
+
+
+<div style="min-width: 500px; max-width: 1300px; margin:0 auto">
+    <br>
+    <h1 style="font-family: Arial ;font-size: 30px">Machine Learning Aided Conformal Cooling Design (MLACCD) Software</h1>
+    <h2 style="font-family: Arial ;font-size: 28px">A machine learning enabled design tool to generate the cooling channels for minimized product temperature variance </h2>
+
+</div>
+
+
+<div style="min-width: 500px; max-width: 1300px; margin:0 auto">
+    <br>
+    <div style="height: 30px"></div>
+
+    <div style ="float:right; margin: 50px 0px 20px 20px">
+        <iframe width="800" height="500"
+            src="https://www.youtube.com/embed/cSr6q1MreSo"
+            frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+
+    <p style="font-family: Arial ; font-size: 28px"><b>Software download and execution </b>:</p>
+    <p style="font-family: Arial ; font-size: 18px; text-align:justify; text-justify:inter-ideograph;">
+       Download the MLACCD.zip package using the following link.  Please contact zhenyang.gao@mail.mcgill.ca to get the passcode.
+    </p>
+    <p style="font-family: Arial ; font-size: 18px; text-align:justify; text-justify:inter-ideograph;">
+       Running Model_C_GUI.exe to create your MLACCD channels.
+    </p>
+
+    <div style="height: 5px"></div>
+    <br />
+    <form action="static/DOWNLOAD LINK.pdf">
+        <button class="button">Download software</button>
+    </form>
+
+    <div style="height: 5px"></div>
+    <br>
+    <p style="font-family: Arial ;font-size: 28px"><b>Software description</b></p>
+
+    <p style="font-family: Arial ; font-size: 18px;text-align:justify; text-justify:inter-ideograph;">
+        The MLACCD software features and a brief guide for the user can be downloaded by the following link.<br>
+    </p>
+    <form action="static/MLACCD Software User Manual.pdf">
+        <button class="button">Download user documentation</button>
+    </form>
+
+
+
+</div>
+
+    <div class="row" style="min-width: 500px; max-width: 1300px; margin:0 auto">
+        <p style="font-family: Arial ; font-size: 28px"><b>Validation Case Studies</b></p>
+        <p style="font-family: Arial ; font-size: 18px;text-align:justify; text-justify:inter-ideograph;">
+        Some of the case studies are chosen to validate the result of the software, where all related work can be found in the these publications:<br>
+        [1] Z. Gao, G. Dong, Y. Tang, Y. Zhao. Machine learning aided design of conformal cooling channels for injection molding. ASME. Journal of Mechanical Design. (In Press)<br>
+        [2] Z. Gao, Y. Zhao. Machine learning aided design and optimization of conformal porous structure. IDETC-CIE 2020.<br>
+        [3] Z. Gao, Y. Zhao. Machine learning aided optimization of conformal cooling channels for injection molding. HI-AM Conference 2019.<br>
+        </p>
+     <div class="column">
+         <img style="width:100%" src="static/img/D1.png" alt="Snow" >
+    </div>
+    <div class="column">
+         <img style="width:100%" src="static/img/D2.png" alt="Snow" >
+    </div>
+<!--    </div>-->
+
+<!--    <div class="row" style="...">-->
+<!--     <div class="column">-->
+<!--        <img style="width:100%" src="static/img/Figure 2.jpg" alt="Snow" >-->
+<!--     </div>-->
+<!--    <div class="column">-->
+<!--        <img style="width:100%" src="static/img/Figure 3.jpg" alt="Snow" >-->
+<!--    </div>-->
+<!--    <div class="column">-->
+<!--        <img style="width:100%" src="static/img/material deposition-element activation.jpg" alt="Snow" >-->
+<!--    </div>-->
+
+    </div>
+<div style="min-width: 500px; max-width: 1300px; margin:0 auto; text-align: center">
+
+    <div style="height: 30px"></div>
+</div>
+
+
+
+<div w3-include-html="end.html"></div>
+<script>
+includeHTML();
+</script>
+
+</body>
+</html>
